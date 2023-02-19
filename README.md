@@ -87,3 +87,5 @@ Amplify Flutter를 사용하면 AWS와 협력하여 Flutter 애플리케이션�
 - 스토리지 : Amplify Flutter를 사용하면 스토리지의 객체를 업로드하고, 다운로드하고, 삭제할 수 있습니다. 또한 Amplify Flutter는 [Amazon Simple Storage Service(S3)](https://aws.amazon.com/s3/)를 기본 지원합니다.
 
 **→ Amplify Flutter**
+
+-> install flutter : https://www.youtube.com/watch?v=_v_NP_Xw4pA
