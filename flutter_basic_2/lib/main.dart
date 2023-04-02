@@ -1,14 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Player {
-  String name;
-
-  Player({required this.name});
-}
-
 void main() {
-  var JunYoung = Player(name: "JunYoung");
-  JunYoung.name; //JunYoung
   runApp(const MyApp());
 }
 
@@ -45,13 +37,6 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Hello Flutter!'),
-        backgroundColor: Colors.blueGrey,
-        // centerTitle: false,
-        elevation: 99,
-        foregroundColor: Colors.red,
-      ),
       body: Center(
         // child: Image.asset('images/tree.jpg'),
         child: Text(
