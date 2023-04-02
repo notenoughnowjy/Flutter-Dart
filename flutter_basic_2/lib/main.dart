@@ -37,17 +37,42 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        // child: Image.asset('images/tree.jpg'),
-        child: Text(
-          'Hello, Text Widget',
-          style: TextStyle(
-            fontSize: 25,
-            color: Colors.purple,
-            backgroundColor: Colors.red,
-          ),
+      backgroundColor: Color(0xFF181818),
+      body: Padding(
+        // padding: EdgeInsets.all(10),
+        padding: EdgeInsets.symmetric(horizontal: 40),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 80,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end, //수평
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.end, //수직
+                  children: [
+                    Text(
+                      'Hey, Selena',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 38,
+                          fontWeight: FontWeight.w800),
+                    ),
+                    Text(
+                      'Welcome back',
+                      style: TextStyle(
+                          color: Colors.white.withOpacity(0.8), fontSize: 18),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );
+    // ),
+    // );
   }
 }
