@@ -25,26 +25,26 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.red,
       ),
       // 저장만 해 변경 내용이 반영되는 것을 Hot_Reload 기능이라고 말함.
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
   final String title; //
-  MyHomePage({required this.title});
+  const MyHomePage({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFF181818),
+      backgroundColor: const Color(0xFF181818),
       body: Padding(
         // padding: EdgeInsets.all(10),
-        padding: EdgeInsets.symmetric(horizontal: 40),
+        padding: const EdgeInsets.symmetric(horizontal: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(
+            const SizedBox(
               height: 80,
             ),
             Row(
@@ -53,7 +53,7 @@ class MyHomePage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.end, //수직
                   children: [
-                    Text(
+                    const Text(
                       'Hey, Selena',
                       style: TextStyle(
                           color: Colors.white,
@@ -69,7 +69,7 @@ class MyHomePage extends StatelessWidget {
                 ),
               ],
             ),
-            SizedBox(
+            const SizedBox(
               height: 120,
             ),
             Text(
@@ -79,10 +79,10 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.white.withOpacity(0.8),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 5,
             ),
-            Text(
+            const Text(
               '\$5 194 482',
               style: TextStyle(
                 fontSize: 44,
@@ -90,17 +90,17 @@ class MyHomePage extends StatelessWidget {
                 color: Colors.white,
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 25,
             ),
             Row(
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xffF2B33A),
+                    color: const Color(0xffF2B33A),
                     borderRadius: BorderRadius.circular(45),
                   ),
-                  child: Padding(
+                  child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 40),
                     child: Text(
                       'Transfer',
