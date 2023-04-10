@@ -111,29 +111,38 @@ class MyHomePage extends StatelessWidget {
                     ),
                   ),
                 ),
-                Row(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: const Color(0xff202020),
-                        borderRadius: BorderRadius.circular(45),
-                      ),
-                      child: const Padding(
-                        padding:
-                            EdgeInsets.symmetric(vertical: 15, horizontal: 50),
-                        child: Text(
-                          'Transfer',
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 20,
-                          ),
-                        ),
+                Container(
+                  decoration: BoxDecoration(
+                    color: const Color(0xff202020),
+                    borderRadius: BorderRadius.circular(45),
+                  ),
+                  child: const Padding(
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                    child: Text(
+                      'Transfer',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20,
                       ),
                     ),
-                  ],
+                  ),
                 )
               ],
             ),
+            const SizedBox(
+              height: 100,
+            ),
+            Row(
+              children: const [
+                Text(
+                  'Wallets',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 35,
+                      fontWeight: FontWeight.w600),
+                )
+              ],
+            )
           ],
         ),
       ),
