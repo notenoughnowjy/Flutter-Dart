@@ -119,7 +119,7 @@ class MyHomePage extends StatelessWidget {
                   child: const Padding(
                     padding: EdgeInsets.symmetric(vertical: 15, horizontal: 50),
                     child: Text(
-                      'Transfer',
+                      'Request',
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 20,
@@ -132,17 +132,6 @@ class MyHomePage extends StatelessWidget {
             const SizedBox(
               height: 100,
             ),
-            Row(
-              children: const [
-                Text(
-                  'Wallets',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 35,
-                      fontWeight: FontWeight.w600),
-                )
-              ],
-            )
           ],
         ),
       ),
