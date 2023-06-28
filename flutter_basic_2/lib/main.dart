@@ -137,31 +137,28 @@ class MyHomePage extends StatelessWidget {
                 height: 20,
               ),
               const Currencycard(
+                order: 0,
                 name: 'Euro',
                 code: 'EUR',
                 amount: '6 428',
                 icon: Icons.euro_rounded,
                 isInverted: false,
               ),
-              Transform.translate(
-                offset: const Offset(0, -30),
-                child: const Currencycard(
-                  name: 'Bitcoin',
-                  code: 'BTC',
-                  amount: '9 785',
-                  icon: Icons.currency_bitcoin,
-                  isInverted: true,
-                ),
+              const Currencycard(
+                order: 1,
+                name: 'Bitcoin',
+                code: 'BTC',
+                amount: '9 785',
+                icon: Icons.currency_bitcoin,
+                isInverted: true,
               ),
-              Transform.translate(
-                offset: const Offset(0, -60),
-                child: const Currencycard(
-                  name: 'Dollar',
-                  code: 'USD',
-                  amount: '9 785',
-                  icon: Icons.attach_money_outlined,
-                  isInverted: false,
-                ),
+              const Currencycard(
+                order: 2,
+                name: 'Dollar',
+                code: 'USD',
+                amount: '9 785',
+                icon: Icons.attach_money_outlined,
+                isInverted: false,
               )
             ],
           ),
