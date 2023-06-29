@@ -28,60 +28,47 @@ class MainApp extends StatefulWidget {
 
 // 앱의 데이터를 가지고 있는 부분이다.
 class _MainAppState extends State<MainApp> {
-  int counter = 0;
-// onclicked 메서드 선언 및 데이터 입력
-  void onClicked() {
-    // setState는 State 클래스에게 데이터가 변경되었다고 알리는 함수이다.
-    // setState를 호출 하지 않는다면 build method는 실행되지 않는다.
-
-    setState(() {
-      counter = counter + 1;
-    });
-  }
-
-  void onMinused() {
-    setState(() {
-      counter = counter - 1;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData(
+        textTheme: const TextTheme(
+          titleLarge: TextStyle(
+            color: Colors.red,
+          ),
+        ),
+      ),
       home: Scaffold(
         backgroundColor: Colors.blueAccent,
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Click count',
-                style: TextStyle(fontSize: 40),
-              ),
-              Text(
-                '$counter',
-                style: const TextStyle(fontSize: 40),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  IconButton(
-                    onPressed: onClicked,
-                    iconSize: 70,
-                    icon: const Icon(
-                      Icons.add_box_rounded,
-                    ),
-                  ),
-                  IconButton(
-                    onPressed: onMinused,
-                    iconSize: 70,
-                    icon: const Icon(Icons.remove_circle),
-                  )
-                ],
-              ),
+            children: const [
+              MyLargeTitle(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+// statefull widget에서 extract widget을 사용해서 statelesswidget이 되었다.
+class MyLargeTitle extends StatelessWidget {
+  const MyLargeTitle({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'My Large Title',
+      style: TextStyle(
+        fontSize: 40,
+        color: Theme.of(context)
+            .textTheme
+            .titleLarge
+            ?.color, //! = 강력한 확신 , ? = 모호한 표현
       ),
     );
   }
