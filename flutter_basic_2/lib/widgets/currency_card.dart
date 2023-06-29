@@ -28,7 +28,7 @@ class Currencycard extends StatelessWidget {
             color: isInverted
                 ? Colors.white
                 : _blackColor, // 이 부분만 white와 _blackColor를 반대로
-            borderRadius: BorderRadius.circular(25),
+            borderRadius: BorderRadius.circular(25), // 박스 깎기
           ),
           child: Padding(
             //전체 여백
