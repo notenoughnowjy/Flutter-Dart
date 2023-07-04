@@ -10,33 +10,53 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int totalSeconds = 1500;
-  late Timer timer;
+  static const twentyFiveMinutes = 1500;
+  int totalSeconds = twentyFiveMinutes;
+  int totalPomodoros = 0;
   bool isRunning = false;
+  late Timer timer;
 
   // 1초씩 감소하는 메소드
   void onTick(Timer timer) {
-    setState(() {
-      totalSeconds = totalSeconds - 1;
-    });
+    if (totalSeconds == 0) {
+      setState(() {
+        totalPomodoros += 1;
+        isRunning = false;
+        totalSeconds = twentyFiveMinutes;
+      });
+      timer.cancel();
+    } else {
+      setState(() {
+        totalSeconds = totalSeconds - 1;
+      });
+    }
   }
 
 //onTick의 1초 감소 메소드를 불러와준다.
   void onStartPressed() {
+    // 타이머 시작
     timer = Timer.periodic(
       const Duration(seconds: 1),
       onTick,
     );
     setState(() {
+      //Icon과 onPressed 바꾸기
       isRunning = true;
     });
   }
 
   void onPuasePressed() {
+    // Timer 취소
     timer.cancel();
     setState(() {
+      // Icon과 onPressed 바꾸기
       isRunning = false;
     });
+  }
+
+  String format(int seconds) {
+    var duration = Duration(seconds: seconds);
+    return duration.toString().split(".").first.substring(2, 7);
   }
 
   @override
@@ -51,7 +71,7 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
-                '$totalSeconds',
+                format(totalSeconds),
                 style: TextStyle(
                   color: Theme.of(context).cardColor,
                   fontSize: 89,
@@ -66,8 +86,10 @@ class _HomeScreenState extends State<HomeScreen> {
               child: IconButton(
                 iconSize: 120,
                 color: Theme.of(context).cardColor,
+                //bool 값으로 정지 or 시작상태 조정
                 onPressed: isRunning ? onPuasePressed : onStartPressed,
                 icon: Icon(
+                  //bool 값으로 puase 또는 play 설정
                   isRunning
                       ? Icons.pause_circle_outlined
                       : Icons.play_circle_outline_outlined,
@@ -99,7 +121,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ),
                         Text(
-                          '0',
+                          '$totalPomodoros',
                           style: TextStyle(
                             fontSize: 58,
                             fontWeight: FontWeight.w600,
