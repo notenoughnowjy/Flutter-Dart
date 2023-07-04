@@ -76,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
         children: [
           //Flexible은 하드 코딩되는 값을 만들게 해준다.
           Flexible(
-            flex: 1,
+            flex: 2,
             child: Container(
               alignment: Alignment.bottomCenter,
               child: Text(
@@ -90,13 +90,13 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Flexible(
-            flex: 3,
+            flex: 4,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   IconButton(
-                    iconSize: 120,
+                    iconSize: 180,
                     color: Theme.of(context).cardColor,
                     //bool 값으로 정지 or 시작상태 조정
                     onPressed: isRunning ? onPuasePressed : onStartPressed,
@@ -108,7 +108,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ),
                   ),
                   IconButton(
-                    iconSize: 75,
+                    iconSize: 60,
                     color: Colors.white,
                     onPressed: onReturned,
                     icon: const Icon(Icons.restore_outlined),
