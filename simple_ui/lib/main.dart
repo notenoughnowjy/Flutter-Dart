@@ -12,8 +12,23 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: 'Flutter Demo',
       home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
+        backgroundColor: Colors.black,
+        body: Column(
+          children: [
+            SizedBox(
+              height: 200,
+              child: Row(
+                children: [
+                  Text(
+                    'This is Row in Column',
+                    style: TextStyle(
+                      color: Colors.white,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ),
       ),
     );
