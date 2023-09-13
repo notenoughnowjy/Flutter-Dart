@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:webttoonapp_2/models/webtoon_model.dart';
 import 'package:webttoonapp_2/services/api_service.dart';
