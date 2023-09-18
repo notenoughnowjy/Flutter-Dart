@@ -19,11 +19,14 @@ class HomeScreen extends StatelessWidget {
         future: webtoons,
         builder: (context, futureData) {
           if (futureData.hasData) {
+            // Column을 추가하고,
             return Column(
               children: [
                 const SizedBox(
+                  // SizedBox로 높이를 200으로 설정해준다
                   height: 200,
                 ),
+                // 함수를 만들어서 가독성을 높여준다.
                 Expanded(child: makeList(futureData))
               ],
             );
@@ -36,11 +39,17 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
+// 반환 함수
   ListView makeList(AsyncSnapshot<List<WebtoonModel>> futureData) {
+    // ListView.separated 사용
     return ListView.separated(
+      // scroll방향을 수직으로 변경
       scrollDirection: Axis.horizontal,
+      // itemCount
       itemCount: futureData.data!.length,
+      // itemBuilder
       itemBuilder: (BuildContext context, int index) {
+        // webtoon에 futureData의 값을 index 값으로 넣기
         var webtoon = futureData.data![index];
         return Column(
           children: [
@@ -50,6 +59,7 @@ class HomeScreen extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
               ),
+              // 이미지 불러오기
               child: Image.network(webtoon.thumb),
             ),
             Text(
@@ -61,6 +71,7 @@ class HomeScreen extends StatelessWidget {
           ],
         );
       },
+      // ListView.separated SizedBox로 여백 남기기
       separatorBuilder: (BuildContext context, int index) => const SizedBox(
         width: 40,
       ),
