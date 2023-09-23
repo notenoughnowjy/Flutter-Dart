@@ -13,7 +13,7 @@ class MyHttpOverrides extends HttpOverrides {
 }
 
 void main() {
-  // ApiService().getTodaysToons();
+  ApiService().getTodaysToons();
   HttpOverrides.global = MyHttpOverrides();
   runApp(const MainApp());
 }
