@@ -22,5 +22,5 @@ class AirplaneModel {
         operation_day = json['운항요일'],
         start_date = json['시작일자'],
         end_date = json['종료일자'],
-        description = json['비고'];
+        description = json['기종'];
 }
