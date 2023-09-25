@@ -4,7 +4,6 @@ import 'package:practice_flutter/services/api_service.dart';
 
 void main() {
   runApp(const MainApp());
-  ApiService().getAirplaneSchedule();
 }
 
 class MainApp extends StatelessWidget {
