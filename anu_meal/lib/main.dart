@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-
-class Player {
-  String name;
-
-  Player({required this.name});
-}
+import 'package:flutter_basic_01/home_screen/calendar.dart';
+import 'package:flutter_basic_01/home_screen/entireappbar.dart';
+import 'package:flutter_basic_01/home_screen/main_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,46 +14,56 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'ANU MEAL',
       theme: ThemeData(),
       home: const MyHomePage(title: 'ANU MEAL'),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  final String title; //
+class MyHomePage extends StatefulWidget {
+  final String title;
   const MyHomePage({super.key, required this.title});
 
   @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var showClass = true;
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("ANU meal"),
-        titleTextStyle: const TextStyle(color: Colors.black, fontSize: 26),
-        centerTitle: true,
-        backgroundColor: Colors.white,
-      ),
-      body: Align(
-        alignment: Alignment.center,
-        child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
-          child: Container(
-            margin: const EdgeInsets.only(bottom: 300), // 위로 조금 이동
-            padding: const EdgeInsets.fromLTRB(125, 200, 125, 200),
-            decoration: BoxDecoration(
-              border: Border.all(),
-              borderRadius: BorderRadius.circular(25.0),
-            ),
-            child: const Text(
-              "Hello",
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontSize: 20.0,
-              ),
-            ),
+      appBar: const EntireApplicationbar(),
+      body: Column(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(
+                  onPressed: (() {
+                    setState(() {
+                      showClass = true;
+                    });
+                  }),
+                  style: TextButton.styleFrom(
+                      foregroundColor: showClass ? Colors.blue : Colors.black),
+                  child: const Text("리스트")),
+              TextButton(
+                  onPressed: (() {
+                    setState(() {
+                      showClass = false;
+                    });
+                  }),
+                  style: TextButton.styleFrom(
+                      foregroundColor: showClass ? Colors.black : Colors.blue),
+                  child: const Text("달력"))
+            ],
           ),
-        ),
+          Expanded(
+            child: showClass ? MealScreen() : const SubCalendar(),
+          ),
+        ],
       ),
     );
   }
